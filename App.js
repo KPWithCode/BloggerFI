@@ -5,6 +5,7 @@ import IndexScreen from './src/screens/indexScreen';
 import { BlogProvider } from './src/context/BlogContext'
 
 const navigator = createStackNavigator({
+  
   Index: IndexScreen
 }, {
   initialRouterName:'Index',
