@@ -12,7 +12,8 @@ const EditScreen = ({ navigation }) => {
         <BlogPostForm
             // Initial title and content
             initialValues={{ title: blogPost.title, content: blogPost.content }}
-            onSubmit={(title, content) => editBlogPost(id,title,content)} />
+                                                                        // Pop takes off the last screen thus returning to last screen
+            onSubmit={(title, content) => editBlogPost(id,title,content, () => navigation.pop())} />
     )
 
     const styles = StyleSheet.create({
