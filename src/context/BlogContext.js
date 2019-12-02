@@ -2,8 +2,21 @@ import createDataContext from './createDataContext';
 
 
 const blogReducer = (state, action) => {
-
     switch (action.type) {
+        case 'edit_blogpost':
+            return state.map((blogPost) => {
+                // Ternary Operator
+                return blogPost.id === action.payload.id 
+                ? action.payload
+                :blogPost
+                // If else
+            //     if (blogPost.id === action.payload.id) {
+            //         return action.payload;
+            //     } else {
+            //         return blogPost
+            //     }
+            })
+
         case 'delete_blogpost':
             return state.filter(blogPost => blogPost.id !== action.payload);
 
@@ -39,7 +52,6 @@ const editBlogPost = dispatch => {
 
 export const { Context, Provider } = createDataContext(
     blogReducer,
-    { addBlogPost, deleteBlogPost,editBlogPost },
-
+    { addBlogPost, deleteBlogPost, editBlogPost },
     []
 );
